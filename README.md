@@ -18,7 +18,7 @@ All blog content is stored as `.md` files in the `content/` folder.
 ---
 
 ## 📂 Project Structure
-
+```
 ├── content/ # All blog posts as Markdown (.md) files
 │ ├── my-first-post.md
 │ └── another-post.md
@@ -27,7 +27,7 @@ All blog content is stored as `.md` files in the `content/` folder.
 ├── styles/ # Global and module CSS
 └── README.md
 
-
+```
 
 Each Markdown file in `content/` must contain **front matter** at the top:
 
@@ -46,3 +46,12 @@ image: /images/blog-cover.png
     rehype — HTML processor for rendering.
     remark — Markdown processor.
     Tailwind CSS (if used) — Utility-first CSS framework.
+
+### 📌 How It Works
+    Markdown Storage: All posts are stored in the content/ directory as .md files.
+
+    Parsing: remark processes the Markdown into HTML, and rehype transforms it for rendering in React.
+
+    Static Generation: Next.js reads the slug from each file’s front matter and generates a static route.
+
+    Display: The blog page renders the parsed HTML with styling and optional components.
