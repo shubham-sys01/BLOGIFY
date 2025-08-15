@@ -44,30 +44,33 @@ export default async function Page({ params }) {
 
   const htmlcontent = (await processor.process(content)).toString();
   return (
-    <div className="min-h-screen  py-10 px-4 mt-6 ">
-      <article className=" w-3/4 mx-auto p-8 ">
-        <h1 className="text-5xl font-bold ">{blog.title}</h1>
-        <p className="border-l-4 border-gray-800 pl-4 text-[16px] text-gray-600 my-4">
-          {blog.description}
-        </p>
-        <div className="flex items-center gap-2 text-sm font-semibold italic text-gray-700 mb-8">
-          <span>
-            By{" "}
-            <span className="font-semibold text-gray-700">{blog.author}</span>
-          </span>
-          <span>|</span>
-          <time dateTime={blog.date}>
-            {new Date(blog.date).toLocaleDateString()}
-          </time>
-        </div>
-        <div
-          dangerouslySetInnerHTML={{ __html: htmlcontent }}
-          className="prose dark:prose-invert text-lg"
-        />
-        <div className="fixed top-25  right-1/4">
-          <OnThisPage htmlContent={htmlcontent} />
-        </div>
-      </article>
+    <div className="min-h-screen py-10 px-4 mt-6">
+  <article className="w-full max-w-6xl mx-auto p-4 sm:p-6 md:p-8">
+    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">{blog.title}</h1>
+    <p className="border-l-4 border-gray-800 pl-4 text-base sm:text-[16px] text-gray-600 my-4">
+      {blog.description}
+    </p>
+    <div className="flex flex-wrap items-center gap-2 text-sm font-semibold italic text-gray-700 mb-8">
+      <span>
+        By{" "}
+        <span className="font-semibold text-gray-700">{blog.author}</span>
+      </span>
+      <span>|</span>
+      <time dateTime={blog.date}>
+        {new Date(blog.date).toLocaleDateString()}
+      </time>
     </div>
+    <div
+      dangerouslySetInnerHTML={{ __html: htmlcontent }}
+      className="prose dark:prose-invert text-lg"
+    />
+    <div className="hidden lg:block fixed top-25 right-10 xl:right-1/4">
+      <OnThisPage htmlContent={htmlcontent} />
+    </div>
+    <div className="block lg:hidden mt-10">
+      <OnThisPage htmlContent={htmlcontent} />
+    </div>
+  </article>
+</div>
   );
 }

@@ -1,8 +1,8 @@
-"use client"
+"use client";
 import Link from "next/link";
-import Themebtn from "./theme-btn"
+import Themebtn from "./theme-btn";
 import { Button } from "@/components/ui/button";
-import { useState , useEffect} from "react"; 
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import LoadingBar from "react-top-loading-bar";
 import {
@@ -14,18 +14,18 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 const Navbar = () => {
-  const path = usePathname()
+  const path = usePathname();
   const [progress, setprogress] = useState(0);
   useEffect(() => {
     setprogress(30);
     const timeouts = [
       setTimeout(() => setprogress(50), 100),
       setTimeout(() => setprogress(70), 100),
-      setTimeout(() => setprogress(100), 100)
+      setTimeout(() => setprogress(100), 100),
     ];
     return () => timeouts.forEach(clearTimeout);
-}, [path]);
-  
+  }, [path]);
+
   return (
     <nav className="fixed top-1.5 w-full z-30 ">
       <LoadingBar
@@ -55,11 +55,11 @@ const Navbar = () => {
             <Button variant="outline">
               <Link href="/">Signup</Link>
             </Button>
-            <Themebtn/>
+            <Themebtn />
           </div>
         </div>
         <div className="hamburger md:hidden cursor-pointer flex items-center gap-2">
-          <Themebtn/>
+          <Themebtn />
           <Sheet>
             <SheetTrigger>
               <svg
@@ -81,28 +81,36 @@ const Navbar = () => {
             </SheetTrigger>
             <SheetContent>
               <SheetHeader>
-                <SheetTitle className="font-bold text-2xl mb-4">BLOGIFY</SheetTitle>
+                <SheetTitle className="font-bold text-2xl mb-4">
+                  BLOGIFY
+                </SheetTitle>
                 <SheetDescription>
                   <div className="  flex flex-col gap-5 justify-center items-center">
                     <div className="flex flex-col gap-5 justify-center items-center">
-                        <Link
-                      href="/"
-                      className=" hover:text-yellow-400  text-lg font-normal "
-                    >
-                      Home
-                    </Link>
-                    <Link
-                      href="/about"
-                      className=" hover:text-yellow-400  text-lg font-normal "
-                    >
-                      About
-                    </Link>
-                    <Link
-                      href="/contact"
-                      className=" hover:text-yellow-400  text-lg font-normal "
-                    >
-                      Contact Us
-                    </Link>
+                      <Link
+                        href="/"
+                        className=" hover:text-yellow-400  text-lg font-normal "
+                      >
+                        Home
+                      </Link>
+                      <Link
+                        href="/about"
+                        className=" hover:text-yellow-400  text-lg font-normal "
+                      >
+                        About
+                      </Link>
+                      <Link
+                        href="/blog"
+                        className=" hover:text-yellow-400 font-medium"
+                      >
+                        Blog
+                      </Link>
+                      <Link
+                        href="/contact"
+                        className=" hover:text-yellow-400  text-lg font-normal "
+                      >
+                        Contact Us
+                      </Link>
                     </div>
                     <div className="flex flex-col gap-2">
                       <Button variant="outline">

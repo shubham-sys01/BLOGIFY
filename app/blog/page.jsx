@@ -35,7 +35,7 @@ const page = () => {
             <p className="text-gray-500 text-sm mb-2">Uploaded on: {`${new Date(blog.date).toLocaleDateString()}`}</p>
             <p className="mb-4 text-gray-700 dark:text-gray-300">{blog.description}</p>
             <a
-              href={`/blogpost/${blog.slug}`}
+              href={`https://blogify-sigma-one.vercel.app/blogpost/${blog.slug}`}
               className="mt-auto px-4 py-2 bg-blue-600 rounded hover:bg-blue-700 transition-colors duration-200 text-white text-center"
             >
               Read More
